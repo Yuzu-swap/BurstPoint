@@ -62,9 +62,8 @@ contract BurstPoint is Ownable{
     }
 
 
-    //begin a singel Game and set burstValue by sha256
+    //begin a single Game and generate burstValue 
     // id : the blockNumber of the game start at  
-
     function beginGame(uint256 id) external onlyOwner{
         address[] memory playerAddresses = new address[](0);
         uint256 burstValue = random(multiple + gameLast * increasePerBlock);
@@ -150,32 +149,6 @@ contract BurstPoint is Ownable{
         }
         return (playerAddresses, records);
     }
-
-
-   
-
-    // function bytes32ToString(bytes32 _bytes32) public pure returns (string memory) {
-    //     uint8 i = 0;
-    //     while(i < 32 && _bytes32[i] != 0) {
-    //         i++;
-    //     }
-    //     bytes memory bytesArray = new bytes(i);
-    //     for (i = 0; i < 32 && _bytes32[i] != 0; i++) {
-    //         bytesArray[i] = _bytes32[i];
-    //     }
-    //     return string(bytesArray);
-    // }
-
-    // function testSha(string memory password) external pure returns(bytes32){
-    //     bytes32 gen = sha256(abi.encode(password));
-    //     return gen;
-    // }
-
-    // function testStr(uint multi, string memory password) external pure returns(string memory){
-    //     string memory gen = string(abi.encodePacked(Strings.toString(multi), password));
-    //     return gen;
-    // }
-
    
 
     
